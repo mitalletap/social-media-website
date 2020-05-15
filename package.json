@@ -30,9 +30,9 @@
     "restart:dev": "pm2 restart all",
     "restart:prod": "pm2 stop app && npm run build && concurrently -n 'server,client' -c 'magenta,cyan' \"npm run start-prod:server\" \"npm run start-prod:client\"",
     "stop": "concurrently -n 'stopping server,stopping client' -c 'red,yellow' \"pm2 stop server.js\" \"cd client && pm2 stop client\"",
-    "test": "react-scripts test",
-    "test:ci": "CI=true react-scripts test --no-watchman",
-    "test:coverage": "react-scripts test --coverage --watch-all"
+    "test": "jest",
+    "test:ci": "CI=true jest --no-watchman",
+    "test:coverage": "jest --coverage --watch-all"
   },
   "repository": {
     "type": "git",
