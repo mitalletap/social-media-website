@@ -128,8 +128,8 @@ class App extends Component {
   }
 }
 
-
-export default withAuthenticator(App, { signUpConfig });
+export default App;
+// export default withAuthenticator(App, { signUpConfig });
 
 
 

@@ -24,7 +24,7 @@
     "start-dev:client": "cd client && pm2 start npm -- start",
     "start-dev": "concurrently -n 'server,client' -c 'magenta,cyan' \"npm run start-dev:server\" \"npm run start-dev:client\"",
     "start-prod:server": "pm2 start server.js",
-    "start-prod:client": "npm run b && pm2 start app.config.json",
+    "start-prod:client": "npm run build && pm2 start app.config.json",
     "start-prod": "concurrently -n 'server,client' -c 'magenta,cyan' \"npm run start-prod:server\" \"npm run start-prod:client\"",
     "update-project": "concurrently -n 'updating server,updating client' -c 'blue,green' \"npm install\" \"cd client && npm install\"",
     "restart:dev": "pm2 restart all",
