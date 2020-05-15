@@ -38,7 +38,7 @@ class Home extends Component {
         const { envState } = this.state;
         var envVar = HelperFunctions.getEnvironmentStatus();
         this.setState({ envState: envVar });
-        const API = `http://localhost:8080/user/`;
+        const API = `http://${envVar}/user/`;
         fetch(API, {
             method: 'POST',
             body: JSON.stringify(user),
