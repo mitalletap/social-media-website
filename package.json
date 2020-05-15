@@ -17,6 +17,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "jest-cli": "^26.0.1"
   },
+  "proxy": "http://localhost:3000/",
   "scripts": {
     "restart": "concurrently -n 'server,client' -c 'magenta,cyan' \"pm2 restart server\" \"pm2 restart client\"",
     "build": "cd client && npm run build",

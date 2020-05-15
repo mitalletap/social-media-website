@@ -20,6 +20,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        const { envState } = this.state;
         Auth.currentAuthenticatedUser()
         .then((res) => { 
         this.setState({ 
@@ -31,15 +32,15 @@ class Home extends Component {
             name: this.props.name,
             username: this.props.username
         }
-        this.sendPOSTRequest(object);
+        var envVar = HelperFunctions.getEnvironmentStatus();
+        this.setState({ envState: envVar }, () => {
+            this.sendPOSTRequest(object);
+        });
     }
 
     sendPOSTRequest(user) {
         const { envState } = this.state;
-        var envVar = HelperFunctions.getEnvironmentStatus();
-	console.log(envVar);
-        this.setState({ envState: envVar });
-        const API = `http://${envVar}/user/`;
+        const API = `http://${envState}/user/`;
         fetch(API, {
             method: 'POST',
             body: JSON.stringify(user),
@@ -62,7 +63,7 @@ class Home extends Component {
         const API= `http://${envState}/user/${username}`;
         fetch(API, { method: 'GET' })
         .then(res => res.json())
-        .then((result) => { console.log(result); this.setState({ searchFinished: true, userExists: result.length > 0 !== true ? false : true, searchedUser: searchValue})})
+        .then((result) => { this.setState({ searchFinished: true, userExists: result.length > 0 !== true ? false : true, searchedUser: searchValue})})
         .catch((err) => { this.setState({ userExists: false}); console.log(err) } );
     }
     

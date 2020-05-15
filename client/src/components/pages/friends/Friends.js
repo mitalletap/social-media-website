@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import FriendCard from './FriendCard'
+import FriendCard from './FriendCard';
+import HelperFunctions from '../../../helpers/helper';
 
 class Friends extends Component {
     constructor(props) {
@@ -8,20 +9,25 @@ class Friends extends Component {
             username: "",
             userData: [],
             pageLoaded: false,
+            envState: ''
         }
     }
 
 
     componentDidMount() {
-        const { username } = this.state;
+        const { username, envState } = this.state;
         this.setState({ username: this.props.username });
-        this.queryDatabaseForUser(this.props.username);
-        this.setState({ pageLoaded: true })
+        var envVar = HelperFunctions.getEnvironmentStatus();
+        this.setState({ envState: envVar }, () => {
+            this.queryDatabaseForUser(this.props.username);
+            this.setState({ pageLoaded: true })
+        });
     }
 
 
     queryDatabaseForUser = async username => {
-        const API= `http://localhost:5000/user/${username}`;
+        const { envState } = this.state;
+        const API= `http://${envState}/user/${username}`;
         console.log(API)
         fetch(API, { method: 'GET' })
         .then(res => res.json())
@@ -61,6 +67,6 @@ export default Friends;
 
 
 
-{/* <FriendCard name={"mital"} username={"@mitalletap"} description={"user bio"}/>
-<FriendCard name={"chirag"} username={"@chiggy"} description={"asdasd"}/>
-<FriendCard name={"ann"} username={"@annnnnn"} description={"user "}/> */}
+// <FriendCard name={"mital"} username={"@mitalletap"} description={"user bio"}/>
+// <FriendCard name={"chirag"} username={"@chiggy"} description={"asdasd"}/>
+// <FriendCard name={"ann"} username={"@annnnnn"} description={"user "}/>

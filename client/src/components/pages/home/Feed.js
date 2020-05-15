@@ -13,17 +13,23 @@ class Feed extends Component {
 
 
     componentDidMount() {
+        const { envState } = this.state;
         console.log("Node ENV: " + process.env.NODE_ENV);
-        this.getAllPosts();
+        var envVar = HelperFunctions.getEnvironmentStatus();
+        this.setState({ envState: envVar }, () => {
+            this.getAllPosts();
+        });
     }
 
     getAllPosts() {
         const { envState } = this.state;
-        var envVar = HelperFunctions.getEnvironmentStatus();
-        this.setState({ envState: envVar });
-        console.log(envVar)
-        const API=`http://localhost:8080/`;
-        fetch(API)
+        const API=`http://${envState}/`;
+        fetch(API, {
+            headers: {
+                "access-control-allow-origin" : "*",
+                "Content-type": "application/json; charset=UTF-8"
+              }
+        })
         .then(res => res.json())
         .then((result) => this.setState({ feed: result.reverse() }))
         .catch(err => console.log(err));
