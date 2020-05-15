@@ -13,7 +13,7 @@ class Feed extends Component {
 
 
     componentDidMount() {
-        console.log(process.env.REACT_APP_TEST)
+        console.log("Node ENV: " + process.env.NODE_ENV);
         this.getAllPosts();
     }
 
