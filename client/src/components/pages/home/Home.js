@@ -37,6 +37,7 @@ class Home extends Component {
     sendPOSTRequest(user) {
         const { envState } = this.state;
         var envVar = HelperFunctions.getEnvironmentStatus();
+	console.log(envVar);
         this.setState({ envState: envVar });
         const API = `http://${envVar}/user/`;
         fetch(API, {

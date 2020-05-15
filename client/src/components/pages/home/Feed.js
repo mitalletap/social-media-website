@@ -22,7 +22,7 @@ class Feed extends Component {
         var envVar = HelperFunctions.getEnvironmentStatus();
         this.setState({ envState: envVar });
         console.log(envVar)
-        const API=`http://${envVar}/`;
+        const API=`http://localhost:8080/`;
         fetch(API)
         .then(res => res.json())
         .then((result) => this.setState({ feed: result.reverse() }))

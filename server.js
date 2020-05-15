@@ -5,20 +5,16 @@ const mongoose = require('mongoose');
 const path = require('path');
 const postRoutes = require('./routes/post');
 const userRoutes = require('./routes/user');
-
 var Post = require('./models/post.model')
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-if(process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
+if(process.env.NODE_ENV !== 'production') { 
+        require('dotenv').config();
 }
 
-const port = process.env.PORT || 8080;
-app.use(express.static(path.join(__dirname, 'frontend/build')));
 
+const app = express();
+const port = process.env.PORT || 8080;
+app.use(cors());
+app.use(express.json());
 
 
 const uri = process.env.ATLAS_URI;
@@ -43,11 +39,12 @@ app.get('/', (req, res) => {
 app.use('/post', postRoutes);
 app.use('/user', userRoutes);
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/frontend/build/index.html'));
-});
+//app.get('*', (req, res) => {
+ //   res.sendFile(path.join(__dirname+'client/build/index.html'));
+//});
 
 
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.listen(port, function () {
     console.log("Server is running on port: " + port)
