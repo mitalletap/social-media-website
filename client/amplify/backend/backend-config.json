@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"socialmediawebsite0472c4d6": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}

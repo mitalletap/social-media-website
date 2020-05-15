@@ -1,0 +1,48 @@
+{
+  "name": "social-media-website",
+  "version": "1.0.0",
+  "description": "social-media-website",
+  "main": "index.js",
+  "dependencies": {
+    "babel-jest": "^24.9.0",
+    "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.14",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest-cli": "^26.0.1"
+  },
+  "scripts": {
+    "restart": "concurrently -n 'server,client' -c 'magenta,cyan' \"pm2 restart server\" \"pm2 restart client\"",
+    "build": "cd client && npm run build",
+    "start-dev:server": "pm2 start server.js",
+    "start-dev:client": "cd client && pm2 start npm -- start",
+    "start-dev": "concurrently -n 'server,client' -c 'magenta,cyan' \"npm run start-dev:server\" \"npm run start-dev:client\"",
+    "start-prod:server": "pm2 start server.js",
+    "start-prod:client": "cd client && npm run build && pm2 start app.config.json",
+    "start-prod": "concurrently -n 'server,client' -c 'magenta,cyan' \"npm run start-prod:server\" \"npm run start-prod:client\"",
+    "update-project": "concurrently -n 'updating server,updating client' -c 'blue,green' \"npm install\" \"cd client && npm install\"",
+    "restart:dev": "pm2 restart all",
+    "restart:prod": "pm2 stop app && npm run build && concurrently -n 'server,client' -c 'magenta,cyan' \"npm run start-prod:server\" \"npm run start-prod:client\"",
+    "stop": "concurrently -n 'stopping server,stopping client' -c 'red,yellow' \"pm2 stop server.js\" \"cd client && pm2 stop client\"",
+    "test": "react-scripts test",
+    "test:ci": "CI=true react-scripts test --no-watchman",
+    "test:coverage": "react-scripts test --coverage --watch-all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitalletap/social-media-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mitalletap/social-media-website/issues"
+  },
+  "homepage": "https://github.com/mitalletap/social-media-website#readme"
+}

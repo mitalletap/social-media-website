@@ -1,0 +1,20 @@
+{
+    "smwenv": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-social-media-website-smwenv-220132-authRole",
+            "UnauthRoleArn": "arn:aws:iam::723602329199:role/amplify-social-media-website-smwenv-220132-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::723602329199:role/amplify-social-media-website-smwenv-220132-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-social-media-website-smwenv-220132-deployment",
+            "UnauthRoleName": "amplify-social-media-website-smwenv-220132-unauthRole",
+            "StackName": "amplify-social-media-website-smwenv-220132",
+            "StackId": "arn:aws:cloudformation:us-east-2:723602329199:stack/amplify-social-media-website-smwenv-220132/640ec740-9658-11ea-b40b-02860fd3b864",
+            "AmplifyAppId": "d2vg0t70slnt27"
+        },
+        "categories": {
+            "auth": {
+                "socialmediawebsite0472c4d6": {}
+            }
+        }
+    }
+}

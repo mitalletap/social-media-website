@@ -1,0 +1,277 @@
+/*  COLOR SET */
+/*
+PRIMARY COLOR: #63cdda 
+SECONDARY COLOR: #0984e3
+
+BG: #2f3640
+
+
+#2d545e
+#12343b
+#e1b382
+#c89666
+
+
+
+#FFFBEE
+#8872AD
+#32558C
+#163460
+#021C33
+
+
+ALTERNATIVE COLORS:
+
+*/
+
+/* General */
+
+:root {
+  --primary-color: #163460;
+  --secondary-color: #63cdda ;
+  --background-default: #021C33;
+}
+.primary-button {
+  background-color:var(--primary-color);
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+
+h1 {
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+p {
+  color: #FFFFFF;
+}
+
+
+
+/* App */
+.app-container {
+  text-align: center;
+  height: 100%;
+}
+
+.app-content {
+  min-height: 100vh;
+}
+
+
+.app-content-items {
+  display: inline-block;
+  text-align: left;
+}
+
+
+/* NavBar */
+.sider-navbar {
+  background-color:var(--primary-color);
+  justify-content: left;
+}
+
+.navbar-container {
+  text-align: center;
+  padding-top: 50px;
+  height: 100%;
+}
+
+.navbar-menu-items {
+  width: 100%;
+  text-align: center;
+  background-color: var(--primary-color);
+}
+
+.navbar-profile-banner {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.navbar-title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.navbar-icon {
+  color: white;
+}
+
+
+/* Home */
+
+.home-container {
+  background-color: var(--background-default);
+  height: 100vh;
+}
+
+.home-search-bar {
+  padding-bottom: 100px;
+}
+
+.home-feed {
+
+}
+
+.home-user-found {
+  color: greenyellow;
+}
+
+.home-user-not-found {
+  color: red;
+}
+
+/* Feed */
+
+.feed-container {
+  width: 50%;
+  position: inherit;
+  left: 50%;
+  top: 50%;
+  transform: translate(50%, 0%);
+}
+
+.feed-item {
+  background-color: grey;
+  padding-bottom: 10px;
+}
+
+.feed-elements {
+  padding-top: 10px;
+}
+
+/* Friends */
+
+.friends-container {
+  background-color: var(--background-default);
+  height: 100vh;
+}
+
+.friend-card-container {
+  min-width: 300px;
+  width: 50%;
+  height: auto;
+  position: inherit;
+  left: 50%;
+  top: 50%;
+  transform: translate(20%, 0%);
+  /* background-color: darkturquoise; */
+  display: flex;
+}
+
+.friend-card-avatar {
+  float: left;
+  height: 100%;
+  flex: 1;
+  /* background-color: khaki; */
+}
+
+.friend-card-data {
+  width: 50%;
+  height: 100%;
+  text-align: left;
+  left: 100px;
+  flex: 2;
+  word-wrap: break-word;
+  /* background-color: deeppink; */
+}
+
+.friend-card-follow {
+  
+}
+
+
+
+
+
+/* Notifications */
+
+.notifications-container {
+  background-color: var(--background-default);
+  height: 100vh;
+}
+
+
+/* Posts */
+
+.post-container {
+  background-color: var(--background-default);
+  height: 100vh;
+}
+
+.post-input-area {
+
+}
+
+.post-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.post-content {
+  height: 100vh;
+}
+
+
+/* Public Profile */
+
+.center {
+  min-width: 300px;
+  width: 50%;
+  height: 200px;
+  position: inherit;
+  left: 50%;
+  top: 50%;
+  transform: translate(50%, 0%);
+}
+
+.public-profile-container {
+  background-color: var(--background-default);
+  height: 100vh;
+}
+
+
+.public-profile-header {
+  display: block;
+  background-color: steelblue;
+  height: 200px;
+}
+
+.public-profile-information {
+  display: block;
+  height: auto;
+  background-color: darkred;
+}
+
+.public-profile-information-item {
+  margin-bottom: 10px;
+  margin-left: 10px;
+  text-align: left;
+  color: white;
+  width: 30%;
+  /* background-color: burlywood;  */
+}
+
+.public-profile-posts {
+  padding-top: 50px;
+  /* background-color: darkcyan; */
+}
+
+.profile-post-item {
+  background-color: grey;
+  border-color: white;
+  border-style: thick;
+  padding-bottom: 10px;
+}
+
+
+/* Private Profile */
+
+.private-profile-container {
+  background-color: var(--background-default);
+  height: 100vh;
+}
