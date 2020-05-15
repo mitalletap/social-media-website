@@ -21,7 +21,8 @@ class Feed extends Component {
         const { envState } = this.state;
         var envVar = HelperFunctions.getEnvironmentStatus();
         this.setState({ envState: envVar });
-        const API=`http://${envVar}`;
+        console.log(envVar)
+        const API=`http://${envVar}/`;
         fetch(API)
         .then(res => res.json())
         .then((result) => this.setState({ feed: result.reverse() }))
